@@ -39,7 +39,7 @@ function operate(a, b, operator){
 
 
 }
-
+let shouldClearDisplay = false
 let displayValue = 0
 let firstValue = 0
 let operator = ''
@@ -112,6 +112,12 @@ function onClick(){
 
 
 function populateDisplay(number, testLength = false){
+    if(shouldClearDisplay){
+        display.innerText = null
+        displayValue = null
+        shouldClearDisplay = false
+    }
+
     if(!testLength){
         if(display.innerText.length < 9){
 
@@ -132,6 +138,5 @@ function clearAC(){
 
 function storeFirstValue(){
     firstValue = displayValue
-    display.innerText = null
-    displayValue = null
+    shouldClearDisplay = true
 }
