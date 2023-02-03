@@ -39,8 +39,7 @@ function operate(a, b, operator){
 
 
 }
-let temp = 0
-let hasFirstValue = false
+let hasBothValues = false
 let displayValue = 0
 let firstValue = 0
 let operator = ''
@@ -57,61 +56,61 @@ function onClick(){
     switch(this.classList.value){
         case 'zero':
 
-            if(hasFirstValue){
+            if(hasBothValues){
                 storeFirstValue()
             }
             populateDisplay('0')
             break;
         case 'one':
-            if(hasFirstValue){
+            if(hasBothValues){
                 storeFirstValue()
             }
             populateDisplay('1')
             break
         case 'two':
-            if(hasFirstValue){
+            if(hasBothValues){
                 storeFirstValue()
             }
             populateDisplay('2')
             break
         case 'three':
-            if(hasFirstValue){
+            if(hasBothValues){
                 storeFirstValue()
             }
             populateDisplay('3')
             break
         case 'four':
-            if(hasFirstValue){
+            if(hasBothValues){
                 storeFirstValue()
             }
             populateDisplay('4')
             break;
         case 'five':
-            if(hasFirstValue){
+            if(hasBothValues){
                 storeFirstValue()
             }
             populateDisplay('5')
             break
         case 'six':
-            if(hasFirstValue){
+            if(hasBothValues){
                 storeFirstValue()
             }
             populateDisplay('6')
             break
         case 'seven':
-            if(hasFirstValue){
+            if(hasBothValues){
                 storeFirstValue()
             }
             populateDisplay('7')
             break
         case 'eight':
-            if(hasFirstValue){
+            if(hasBothValues){
                 storeFirstValue()
             }
             populateDisplay('8')
             break;
         case 'nine':
-            if(hasFirstValue){
+            if(hasBothValues){
                 storeFirstValue()
             }
             populateDisplay('9')
@@ -120,47 +119,42 @@ function onClick(){
             clearAC()
             break
         case 'add':
-            if(hasFirstValue){
+            if(hasBothValues){
                 operate(firstValue, displayValue, operator)
-                hasFirstValue = false
             }else{
-            hasFirstValue = true
+            hasBothValues = true
             }
             operator = 'add'
             break
         case 'subtract':
-            if(hasFirstValue){
+            if(hasBothValues){
                 operate(firstValue, displayValue, operator)
-                hasFirstValue = false
             }else{
-            hasFirstValue = true
+            hasBothValues = true
             }
             operator = 'subtract'
             break
         case 'multiply':
-            if(hasFirstValue){
+            if(hasBothValues){
                 operate(firstValue, displayValue, operator)
-                hasFirstValue = false
             }else{
-            hasFirstValue = true
+            hasBothValues = true
             }
             operator = 'multiply'
             break
         case 'divide':
-            if(hasFirstValue){
+            if(hasBothValues){
                 operate(firstValue, displayValue, operator)
-                hasFirstValue = false
             }else{
-            hasFirstValue = true
+            hasBothValues = true
             }
             operator = 'divide'
             break   
         case 'equals':
-            if(hasFirstValue){
+            if(hasBothValues){
                 operate(firstValue, displayValue, operator)
             }
-            hasFirstValue = false
-            
+            hasBothValues = false
             break;      
 
     }
@@ -177,6 +171,7 @@ function populateDisplay(number, testLength = false){
         }else{
             display.innerText = number
             displayValue = display.innerText
+
         }
 }
 
@@ -184,7 +179,7 @@ function clearAC(){
     display.innerText = null
     displayValue = null
     firstValue = null
-    hasFirstValue = false
+    hasBothValues = false
 }
 
 function storeFirstValue(){
