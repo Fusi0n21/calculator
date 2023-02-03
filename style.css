@@ -1,0 +1,30 @@
+body{
+    font-size: 60px;
+}
+
+.calculator{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.first, .second, .third, .fourth, .fifth{
+    display: flex;
+    gap: 0px;
+}
+button{
+    border: solid black;
+    width: 75px;
+    height: 75px;
+}
+button.zero{
+    width: 150px;
+}
+.top{
+    width: 300px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid black;
+}
