@@ -17,7 +17,6 @@ function multiply(a, b){
 
 
 function operate(a, b, operator){
-    let result
     switch(operator){
         case 'add':
             result = add(a, b)
@@ -38,7 +37,9 @@ function operate(a, b, operator){
     }
     shouldClearDisplay = true
     allowToCalc = false
+
 }
+let result
 let allowToCalc = false
 let shouldClearDisplay = false
 let displayValue = 0
@@ -132,6 +133,7 @@ function onClick(){
 
 
 function populateDisplay(number, testLength = false){
+
     if(shouldClearDisplay){
         display.innerText = null
         displayValue = null
@@ -145,9 +147,17 @@ function populateDisplay(number, testLength = false){
             displayValue = display.innerText
         }
     }else{
-        display.innerText = number
-        displayValue = display.innerText
+        if(result == Infinity || result == NaN){
+            console.log('a')
+            display.innerText = 'wtf'
+        }else{
+
+
+            display.innerText = number
+            displayValue = display.innerText
+        }
     }
+
 }
 
 function clearAC(){
