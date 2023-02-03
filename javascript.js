@@ -39,7 +39,8 @@ function operate(a, b, operator){
 
 
 }
-
+let temp = 0
+let hasFirstValue = false
 let displayValue = 0
 let firstValue = 0
 let operator = ''
@@ -55,79 +56,135 @@ function onClick(){
 
     switch(this.classList.value){
         case 'zero':
+
+            if(hasFirstValue){
+                storeFirstValue()
+            }
             populateDisplay('0')
             break;
         case 'one':
+            if(hasFirstValue){
+                storeFirstValue()
+            }
             populateDisplay('1')
             break
         case 'two':
+            if(hasFirstValue){
+                storeFirstValue()
+            }
             populateDisplay('2')
             break
         case 'three':
+            if(hasFirstValue){
+                storeFirstValue()
+            }
             populateDisplay('3')
             break
         case 'four':
+            if(hasFirstValue){
+                storeFirstValue()
+            }
             populateDisplay('4')
             break;
         case 'five':
+            if(hasFirstValue){
+                storeFirstValue()
+            }
             populateDisplay('5')
             break
         case 'six':
+            if(hasFirstValue){
+                storeFirstValue()
+            }
             populateDisplay('6')
             break
         case 'seven':
+            if(hasFirstValue){
+                storeFirstValue()
+            }
             populateDisplay('7')
             break
         case 'eight':
+            if(hasFirstValue){
+                storeFirstValue()
+            }
             populateDisplay('8')
             break;
         case 'nine':
+            if(hasFirstValue){
+                storeFirstValue()
+            }
             populateDisplay('9')
             break
         case 'ac':
             clearAC()
             break
         case 'add':
-            storeFirstValue()
+            if(hasFirstValue){
+                operate(firstValue, displayValue, operator)
+                hasFirstValue = false
+            }else{
+            hasFirstValue = true
+            }
             operator = 'add'
             break
-        case 'equals':
-            operate(firstValue, displayValue, operator)
-            break;
         case 'subtract':
-            storeFirstValue()
+            if(hasFirstValue){
+                operate(firstValue, displayValue, operator)
+                hasFirstValue = false
+            }else{
+            hasFirstValue = true
+            }
             operator = 'subtract'
             break
         case 'multiply':
-            storeFirstValue()
+            if(hasFirstValue){
+                operate(firstValue, displayValue, operator)
+                hasFirstValue = false
+            }else{
+            hasFirstValue = true
+            }
             operator = 'multiply'
             break
         case 'divide':
-            storeFirstValue()
+            if(hasFirstValue){
+                operate(firstValue, displayValue, operator)
+                hasFirstValue = false
+            }else{
+            hasFirstValue = true
+            }
             operator = 'divide'
-            break         
+            break   
+        case 'equals':
+            if(hasFirstValue){
+                operate(firstValue, displayValue, operator)
+            }
+            hasFirstValue = false
+            
+            break;      
 
     }
 }
 
 
 function populateDisplay(number, testLength = false){
-    if(!testLength){
-        if(display.innerText.length < 9){
+        if(!testLength){
+            if(display.innerText.length < 9){
 
-            display.innerText += number
+                display.innerText += number
+                displayValue = display.innerText
+            }
+        }else{
+            display.innerText = number
             displayValue = display.innerText
         }
-    }else{
-        display.innerText = number
-        displayValue = display.innerText
-    }
 }
 
 function clearAC(){
     display.innerText = null
     displayValue = null
     firstValue = null
+    hasFirstValue = false
 }
 
 function storeFirstValue(){
@@ -135,3 +192,4 @@ function storeFirstValue(){
     display.innerText = null
     displayValue = null
 }
+
