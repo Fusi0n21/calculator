@@ -36,9 +36,10 @@ function operate(a, b, operator){
             populateDisplay(result, true)
             break
     }
-
-
+    shouldClearDisplay = true
+    allowToCalc = false
 }
+let allowToCalc = false
 let shouldClearDisplay = false
 let displayValue = 0
 let firstValue = 0
@@ -51,8 +52,7 @@ for(let a of buttons){
 }
 
 function onClick(){
-
-
+    
     switch(this.classList.value){
         case 'zero':
             populateDisplay('0')
@@ -88,25 +88,45 @@ function onClick(){
             clearAC()
             break
         case 'add':
-            storeFirstValue()
+            if(allowToCalc){
+                operate(firstValue, displayValue, operator)
+            }
+                storeFirstValue()
+            
+            
             operator = 'add'
             break
-        case 'equals':
-            operate(firstValue, displayValue, operator)
-            break;
         case 'subtract':
-            storeFirstValue()
+            if(allowToCalc){
+                operate(firstValue, displayValue, operator)
+            }
+                storeFirstValue()
             operator = 'subtract'
             break
         case 'multiply':
-            storeFirstValue()
+            if(allowToCalc){
+                operate(firstValue, displayValue, operator)
+            }
+                storeFirstValue()
             operator = 'multiply'
             break
         case 'divide':
-            storeFirstValue()
+            if(allowToCalc){
+                operate(firstValue, displayValue, operator)
+            }
+                storeFirstValue()
             operator = 'divide'
-            break         
+            break   
+        case 'equals':
+            operate(firstValue, displayValue, operator)
+            break;      
 
+    }
+
+    for(let a of buttons){
+        if(a.classList.value == 'percent'){
+            a.innerText = operator
+        }
     }
 }
 
@@ -117,7 +137,7 @@ function populateDisplay(number, testLength = false){
         displayValue = null
         shouldClearDisplay = false
     }
-
+    allowToCalc = true
     if(!testLength){
         if(display.innerText.length < 9){
 
