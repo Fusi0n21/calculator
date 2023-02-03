@@ -19,11 +19,11 @@ function multiply(a, b){
 function operate(a, b, operator){
     switch(operator){
         case 'add':
-            result = add(a, b)
+            result = Math.round(add(a, b) * 100) / 100;
             populateDisplay(result, true)
             break
         case 'subtract':
-            result = subtract(a, b)
+            result = Math.round(subtract(a, b) * 100) / 100;
             populateDisplay(result, true)
             break
         case 'multiply':
@@ -126,6 +126,7 @@ function onClick(){
 
     for(let a of buttons){
         if(a.classList.value == 'percent'){
+
             a.innerText = operator
         }
     }
@@ -162,8 +163,18 @@ function populateDisplay(number, testLength = false){
 
 function clearAC(){
     display.innerText = null
-    displayValue = null
+    displayValue = ''
     firstValue = null
+    result = null
+    allowToCalc = false
+    shouldClearDisplay = false
+    operator = ''
+    for(let a of buttons){
+        if(a.classList.value == 'percent'){
+            
+            a.innerText = ''
+        }
+    }
 }
 
 function storeFirstValue(){
