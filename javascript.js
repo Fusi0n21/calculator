@@ -189,8 +189,15 @@ function addPoint(){
 
 function deleteLast(){
 	display.innerText = display.innerText.slice(0, -1); 
+	displayValue = display.innerText;
 }
 
 function toggleToNegative(){
-	
+	let hasMinus = display.innerText.includes('-')
+	if(hasMinus){
+		display.innerText = display.innerText.slice(0, 0); 
+	}else{
+		display.innerText = '-' + display.innerText
+	}
+	displayValue = display.innerText;
 }
