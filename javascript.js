@@ -117,6 +117,9 @@ function onClick() {
 			operate(firstValue, displayValue, operator);
 			operator = ''
 			break;
+		case 'point':
+			addPoint()
+			break
 	}
 
 	for (let a of buttons) {
@@ -167,4 +170,12 @@ function clearAC() {
 function storeFirstValue() {
 	firstValue = displayValue;
 	shouldClearDisplay = true;
+}
+
+function addPoint(){
+	console.log('a')
+	let hasDot = display.innerText.includes('.')
+	if (!hasDot){
+		display.innerText += '.'
+	}
 }
