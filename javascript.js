@@ -123,6 +123,9 @@ function onClick() {
 		case 'backspace':
 			deleteLast()
 			break
+		case 'plusminus':
+			toggleToNegative()
+			break
 	}
 
 	for (let a of buttons) {
@@ -176,13 +179,18 @@ function storeFirstValue() {
 }
 
 function addPoint(){
-	console.log('a')
-	let hasDot = display.innerText.includes('.')
-	if (!hasDot){
-		display.innerText += '.'
+	if(display.innerText != ''){
+		let hasDot = display.innerText.includes('.')
+		if (!hasDot){
+			display.innerText += '.'
+		}
 	}
 }
 
 function deleteLast(){
 	display.innerText = display.innerText.slice(0, -1); 
+}
+
+function toggleToNegative(){
+	
 }
