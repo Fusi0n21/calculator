@@ -115,17 +115,17 @@ function onClick() {
 			break;
 		case "equals":
 			operate(firstValue, displayValue, operator);
-			operator = ''
+			operator = "";
 			break;
-		case 'point':
-			addPoint()
-			break
-		case 'backspace':
-			deleteLast()
-			break
-		case 'plusminus':
-			toggleToNegative()
-			break
+		case "point":
+			addPoint();
+			break;
+		case "backspace":
+			deleteLast();
+			break;
+		case "plusminus":
+			toggleToNegative();
+			break;
 	}
 
 	for (let a of buttons) {
@@ -178,26 +178,26 @@ function storeFirstValue() {
 	shouldClearDisplay = true;
 }
 
-function addPoint(){
-	if(display.innerText != ''){
-		let hasDot = display.innerText.includes('.')
-		if (!hasDot){
-			display.innerText += '.'
+function addPoint() {
+	if (display.innerText != "") {
+		let hasDot = display.innerText.includes(".");
+		if (!hasDot) {
+			display.innerText += ".";
 		}
 	}
 }
 
-function deleteLast(){
-	display.innerText = display.innerText.slice(0, -1); 
+function deleteLast() {
+	display.innerText = display.innerText.slice(0, -1);
 	displayValue = display.innerText;
 }
 
-function toggleToNegative(){
-	let hasMinus = display.innerText.includes('-')
-	if(hasMinus){
-		display.innerText = display.innerText.slice(0, 0); 
-	}else{
-		display.innerText = '-' + display.innerText
+function toggleToNegative() {
+	let hasMinus = display.innerText.includes("-");
+	if (hasMinus) {
+		display.innerText = display.innerText.slice(0, 0);
+	} else {
+		display.innerText = "-" + display.innerText;
 	}
 	displayValue = display.innerText;
 }
