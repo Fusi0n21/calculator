@@ -115,6 +115,7 @@ function onClick() {
 			break;
 		case "equals":
 			operate(firstValue, displayValue, operator);
+			operator = ''
 			break;
 	}
 
