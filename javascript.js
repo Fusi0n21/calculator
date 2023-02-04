@@ -120,6 +120,9 @@ function onClick() {
 		case 'point':
 			addPoint()
 			break
+		case 'backspace':
+			deleteLast()
+			break
 	}
 
 	for (let a of buttons) {
@@ -178,4 +181,8 @@ function addPoint(){
 	if (!hasDot){
 		display.innerText += '.'
 	}
+}
+
+function deleteLast(){
+	display.innerText = display.innerText.slice(0, -1); 
 }
