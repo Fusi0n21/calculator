@@ -179,7 +179,7 @@ function storeFirstValue() {
 }
 
 function addPoint() {
-	if (display.innerText != "") {
+	if (display.innerText != "" && display.innerText != "-") {
 		let hasDot = display.innerText.includes(".");
 		if (!hasDot) {
 			display.innerText += ".";
