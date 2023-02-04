@@ -193,6 +193,15 @@ function deleteLast() {
 }
 
 function toggleToNegative() {
+	if (shouldClearDisplay) {
+		display.innerText = null;
+		displayValue = null;
+		shouldClearDisplay = false;
+	}
+
+
+
+
 	let hasMinus = display.innerText.includes("-");
 	if (hasMinus) {
 		display.innerText = display.innerText.slice(0, 0);
