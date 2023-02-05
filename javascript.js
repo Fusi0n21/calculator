@@ -156,6 +156,10 @@ function populateDisplay(number, testLength = false) {
 			displayValue = display.innerText;
 		}
 	}
+	if(number.toString().length > 10){
+		console.log('a')
+		display.innerText = "Too Big";
+	}
 }
 
 function clearAC() {
