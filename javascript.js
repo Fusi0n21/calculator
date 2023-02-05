@@ -157,8 +157,7 @@ function populateDisplay(number, testLength = false) {
 		}
 	}
 	if(number.toString().length > 10){
-		console.log('a')
-		display.innerText = "Too Big";
+		display.innerText = "ERR: Too Big";
 	}
 }
 
