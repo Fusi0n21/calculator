@@ -128,11 +128,7 @@ function onClick() {
 			break;
 	}
 
-	for (let a of buttons) {
-		if (a.classList.value == "percent") {
-			a.innerText = operator;
-		}
-	}
+
 }
 
 function populateDisplay(number, testLength = false) {
@@ -213,3 +209,78 @@ function toggleToNegative() {
 	}
 	displayValue = display.innerText;
 }
+
+
+window.addEventListener('keydown', e => {
+	console.log(e.key)
+	switch(e.key){
+		case '0':
+			populateDisplay('0')
+			break
+		case '1':
+			populateDisplay('1')
+			break
+		case '2':
+			populateDisplay('2')
+			break
+		case '3':
+			populateDisplay('3')
+			break
+		case '4':
+			populateDisplay('4')
+			break
+		case '5':
+			populateDisplay('5')
+			break
+		case '6':
+			populateDisplay('6')
+			break
+		case '7':
+			populateDisplay('7')
+			break
+		case '8':
+			populateDisplay('8')
+			break
+		case '9':
+			populateDisplay('9')
+			break
+		case '/':
+			if (allowToCalc) {
+				operate(firstValue, displayValue, operator);
+			}
+			storeFirstValue();
+			operator = "divide";
+			break;
+		case '*':
+			if (allowToCalc) {
+				operate(firstValue, displayValue, operator);
+			}
+			storeFirstValue();
+			operator = "multiply";
+			break;
+		case '-':
+			if (allowToCalc) {
+				operate(firstValue, displayValue, operator);
+			}
+			storeFirstValue();
+			operator = "subtract";
+			break;
+		case '+':
+			if (allowToCalc) {
+				operate(firstValue, displayValue, operator);
+			}
+			storeFirstValue();
+
+			operator = "add";
+			break;
+		case 'Enter':
+			operate(firstValue, displayValue, operator);
+			operator = "";
+			break;
+		case '=':
+			operate(firstValue, displayValue, operator);
+			operator = "";
+			break;
+	}
+})
+
