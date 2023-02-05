@@ -281,6 +281,12 @@ window.addEventListener('keydown', e => {
 			operate(firstValue, displayValue, operator);
 			operator = "";
 			break;
+		case 'Backspace':
+			deleteLast();
+			break;
+		case ".":
+			addPoint();
+			break;
 	}
 })
 
